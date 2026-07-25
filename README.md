@@ -1,16 +1,268 @@
-# React + Vite
+# AI Telecom Customer Support System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An AI-powered telecom customer support platform that automates customer request classification, workflow execution, ticket management, and customer communication using OpenAI, n8n, React, and Supabase.
 
-Currently, two official plugins are available:
+**Live Demo:** [https://telecom-support.vercel.app/](https://telecom-support.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## System Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Sequence Diagram
 
-## Expanding the Oxlint configuration
+![Sequence Diagram](screenshots/sequenceDiag.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The customer sends a request from the React application. The request is processed by n8n, analyzed using OpenAI, routed to the appropriate workflow, stored in Supabase, and reflected in the Admin Dashboard with automated email notifications.
+
+---
+
+## AI Workflow
+
+### n8n Workflow
+
+![n8n Workflow](screenshots/n8nDiag.png)
+
+The workflow performs:
+
+- AI Request Analysis
+- Request Classification
+- Department Assignment
+- Priority & Urgency Detection
+- Missing Information Collection
+- Workflow Routing
+- Email Notifications
+- Admin Updates
+- Follow-up Reminders
+
+---
+
+# User Application
+
+## Customer Portal
+
+![Customer Portal](screenshots/customer-1.png)
+
+Customers can submit telecom support requests, view previous conversations, and track all generated tickets.
+
+---
+
+## Ticket Details
+
+![Ticket Details](screenshots/customer-2.png)
+
+Each ticket displays:
+
+- Ticket Status
+- Assigned Department
+- Conversation History
+- Timeline
+- Admin Updates
+- Email Notifications
+
+---
+
+# Admin Dashboard
+
+## Dashboard
+
+![Admin Dashboard](screenshots/admin.png)
+
+Administrators can:
+
+- View all customer tickets
+- Filter requests by status
+- Update ticket status
+- Add internal notes
+- Trigger customer notifications
+
+---
+
+# Supported Workflows
+
+## Service Request
+
+**Example**
+
+```text
+I want a new broadband connection.
+```
+
+```
+Customer
+      │
+      ▼
+React
+      │
+      ▼
+n8n
+      │
+      ▼
+AI Analysis
+      │
+      ▼
+Need More Information?
+      │
+      ├── Yes
+      │
+      ▼
+Collect Details
+      │
+      ▼
+Assign Broadband Team
+      │
+      ▼
+Confirmation Email
+      │
+      ▼
+Admin Dashboard
+      │
+      ▼
+Admin Update
+      │
+      ▼
+Status Update Email
+```
+
+---
+
+## General Enquiry
+
+**Example**
+
+```text
+What are your prepaid recharge plans?
+```
+
+```
+Customer
+      │
+      ▼
+React
+      │
+      ▼
+n8n
+      │
+      ▼
+AI Analysis
+      │
+      ▼
+Knowledge Base
+      │
+      ▼
+Generate Answer
+      │
+      ▼
+Email Response
+      │
+      ▼
+Completed
+```
+
+---
+
+## Complaint
+
+**Example**
+
+```text
+My internet has stopped working. Please raise a complaint.
+```
+
+```
+Customer
+      │
+      ▼
+React
+      │
+      ▼
+n8n
+      │
+      ▼
+AI Analysis
+      │
+      ▼
+Assign Technical Team
+      │
+      ▼
+Priority & Urgency
+      │
+      ▼
+Acknowledgement Email
+      │
+      ▼
+Admin Dashboard
+      │
+      ▼
+Admin Update
+      │
+      ▼
+Wait Node
+      │
+      ▼
+Reminder Email
+      │
+      ▼
+Resolution Email
+```
+
+---
+
+# Database
+
+![Supabase](screenshots/supabase.png)
+
+The database stores:
+
+- Tickets
+- Chat Messages
+- Ticket Timeline
+- Admin Notes
+
+---
+
+# Technology Stack
+
+| Layer | Technology |
+|--------|------------|
+| Frontend | React + Vite |
+| AI | OpenAI GPT |
+| Workflow Engine | n8n |
+| Database | Supabase |
+| Email Service | Gmail |
+| Styling | Tailwind CSS |
+
+---
+
+# Project Structure
+
+```text
+frontend/
+n8n/
+screenshots/
+README.md
+```
+
+---
+
+# Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+Configure:
+
+- OpenAI API Key
+- Supabase Credentials
+- Gmail Credentials
+
+Import the provided n8n workflow and start the application.
+
+---
+
+# Author
+
+**Kartikey Mittal**
+
+AI Telecom Customer Support System
