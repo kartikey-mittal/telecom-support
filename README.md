@@ -10,7 +10,7 @@ An AI-powered telecom customer support platform that automates customer request 
 
 ### Sequence Diagram
 
-![Sequence Diagram](screenshots/sequenceDiag.png)
+![Sequence Diagram](assets/SequenceDiag.jpg)
 
 The customer sends a request from the React application. The request is processed by n8n, analyzed using OpenAI, routed to the appropriate workflow, stored in Supabase, and reflected in the Admin Dashboard with automated email notifications.
 
@@ -20,7 +20,7 @@ The customer sends a request from the React application. The request is processe
 
 ### n8n Workflow
 
-![n8n Workflow](screenshots/n8nDiag.png)
+![n8n Workflow](assets/n8nDiag.jpg)
 
 The workflow performs:
 
@@ -40,7 +40,7 @@ The workflow performs:
 
 ## Customer Portal
 
-![Customer Portal](screenshots/customer-1.png)
+![Customer Portal](assets/customer-1.jpg)
 
 Customers can submit telecom support requests, view previous conversations, and track all generated tickets.
 
@@ -48,7 +48,7 @@ Customers can submit telecom support requests, view previous conversations, and 
 
 ## Ticket Details
 
-![Ticket Details](screenshots/customer-2.png)
+![Ticket Details](assets/customer-2.jpg)
 
 Each ticket displays:
 
@@ -65,7 +65,7 @@ Each ticket displays:
 
 ## Dashboard
 
-![Admin Dashboard](screenshots/admin.png)
+![Admin Dashboard](assets/admin.jpg)
 
 Administrators can:
 
@@ -205,18 +205,6 @@ Reminder Email
 Resolution Email
 ```
 
----
-
-# Database
-
-![Supabase](screenshots/supabase.png)
-
-The database stores:
-
-- Tickets
-- Chat Messages
-- Ticket Timeline
-- Admin Notes
 
 ---
 
