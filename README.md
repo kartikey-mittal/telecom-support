@@ -10,7 +10,7 @@ An AI-powered telecom customer support platform that automates customer request 
 
 ### Sequence Diagram
 
-![Sequence Diagram](assets/SequenceDiag.jpg)
+![Sequence Diagram](assets/sequenceDiag.jpg)
 
 The customer sends a request from the React application. The request is processed by n8n, analyzed using OpenAI, routed to the appropriate workflow, stored in Supabase, and reflected in the Admin Dashboard with automated email notifications.
 
