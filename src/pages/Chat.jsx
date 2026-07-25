@@ -117,7 +117,7 @@ export default function Chat() {
       }
     } else {
       const t = await fetchTicketBySessionId(session.sessionId);
-      if (t) {
+      if (t && t.customer_email === session.customerEmail) {
         setTicket(t); setLocalTicketId(t.ticket_id); setTicketId(t.ticket_id);
         if (t.conversation_history && Array.isArray(t.conversation_history)) {
           setHistory(t.conversation_history);
